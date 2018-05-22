@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基础绘制LineCap</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        // lineCap 属性设置或返回线条末端线帽的样式。
+        //butt  默认值。向线条的每个末端添加平直的边缘
+        //round 向线条的每个末端添加圆形线帽。
+        //square 向线条的每个末端添加正方形线帽。
+
+        //设置画布的宽和高
+        canvas.width = 800;
+        canvas.height = 800;
+
+        context.beginPath();
+        context.moveTo(15, 15);
+        context.lineTo(350, 15);
+        context.lineCap= "butt";
+        context.lineWidth = 10;
+        context.stroke();
+
+        context.beginPath();
+        context.moveTo(15, 35);
+        context.lineTo(350, 35);
+        context.lineCap= "round";
+        context.lineWidth = 10;
+        context.stroke();
+
+        context.beginPath();
+        context.moveTo(15, 55);
+        context.lineTo(350, 55);
+        context.lineCap= "square";
+        context.lineWidth = 10;
+        context.stroke();
+    }
+
+</script>
+
+</body>
+</html>
