@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基础绘制矩形DEMO</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        //设置画布的宽和高
+        canvas.width = 800;
+        canvas.height = 800;
+
+        context.beginPath();
+        context.strokeRect(220,0,100,100);  //画一个空心的矩形，就是没有填充颜色，边框默认是灰色的
+
+        context.beginPath();
+        context.strokeStyle="red";       //将边框的颜色设置为红色
+        context.strokeRect(330,0,100,100); //画一个边框为红色的矩形
+
+        context.beginPath();
+        context.fillStyle="rgba(255,252,153,0.5)";//设置颜色为红色，透明度为0.5
+        context.fillRect(440,0,100,100);
+    }
+
+</script>
+
+</body>
+</html>

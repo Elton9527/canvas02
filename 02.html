@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制折线</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        //设置画布的宽和高
+        canvas.width = 800;
+        canvas.height = 800;
+
+        //绘制一个大箭头
+        context.moveTo(100,350);
+        context.lineTo(500,350);
+        context.lineTo(500,200);
+        context.lineTo(700,400);
+        context.lineTo(500,600);
+        context.lineTo(500,450);
+        context.lineTo(100,450);
+        context.lineWidth = 10;
+
+        context.strokeStyle="#058";
+        context.stroke();
+    }
+
+</script>
+
+</body>
+</html>
