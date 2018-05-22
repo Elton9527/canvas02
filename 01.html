@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基础绘制DEMO</title>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        //设置画布的宽和高
+        canvas.width = 500;
+        canvas.height = 500;
+
+        //画一条直线
+        context.moveTo(100,100);
+        context.lineTo(400,400);
+        context.lineWidth = 10;
+        context.strokeStyle="#058";
+        context.stroke();
+    }
+
+</script>
+
+</body>
+</html>
