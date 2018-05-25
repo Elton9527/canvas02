@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制文字</title>
+</head>
+<body>
+<div style="width: 800px; margin: 0 auto;">
+    <canvas id="canvas"></canvas>
+</div>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        //设置画布的宽和高
+        canvas.width = 800;
+        canvas.height = 800;
+
+
+
+        drawFont(context, "20px Georgia", "Hello World!", 0, 30);
+    }
+
+    /**
+     * ctx 上下文环境
+     * font 字体
+     * content 文字内容
+     * x y  坐标
+     **/
+    function drawFont(ctx, font, content, x, y){
+        ctx.font = font;
+
+        //实心文字
+        ctx.fillText(content, x, y);
+
+        //描边文字
+        ctx.strokeText(content, x, y+30);
+
+        //渐变色文字
+        var gradient = ctx.createLinearGradient(0,0,80,80);
+        gradient.addColorStop("0","magenta");
+        gradient.addColorStop("0.5","blue");
+        gradient.addColorStop("1.0","red");
+        // 用渐变填色
+        ctx.fillStyle = gradient;
+        ctx.fillText(content, x, y+60);
+    }
+</script>
+
+</body>
+</html>
