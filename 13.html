@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>曲线绘制</title>
+</head>
+<body>
+<div style="width: 800px; margin: 0 auto;">
+    <canvas id="canvas"></canvas>
+</div>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        //设置画布的宽和高
+        canvas.width = 800;
+        canvas.height = 800;
+
+        drawRoundRect(context, 0, 0, 300, 300, 50);
+
+    }
+
+    /**
+     * 画一个圆角矩形
+     * ctx 上下文环境
+     * x 起点 x 坐标
+     * y 起点 y 坐标
+     * width  宽度
+     * height 高度
+     * radius 圆角半径
+     **/
+    function drawRoundRect(ctx, x, y, width, height, radius){
+    	ctx.save();
+    	// translate() 方法重新映射画布上的 (0,0) 位置。
+    	ctx.translate(x, y);
+    	// 封装绘制图形的方法
+    	pathRoundRect(ctx, width, height, radius);
+    	ctx.stokeStyle = "black";
+    	ctx.stroke();
+    	ctx.restore();
+
+    }
+
+    function pathRoundRect(ctx, width, height, radius){
+    	ctx.beginPath();
+    	ctx.arc(width - radius, height - radius, radius, 0, Math.PI / 2);
+    	ctx.lineTo(radius, height);
+
+    	ctx.arc(radius, height-radius, radius,  Math.PI / 2, Math.PI);
+    	ctx.lineTo(0, radius);
+
+    	ctx.arc(radius, radius, radius,  Math.PI, Math.PI*3/2);
+    	ctx.lineTo(width - radius, 0);
+
+    	ctx.arc(width - radius, radius, radius, Math.PI*3/2, Math.PI*2);
+    	ctx.closePath();
+
+    }
+
+
+</script>
+
+</body>
+</html>

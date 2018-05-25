@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>径向渐变|扩散性渐变</title>
+</head>
+<body>
+<div style="width: 800px; margin: 0 auto;">
+    <canvas id="canvas"></canvas>
+</div>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        //设置画布的宽和高
+        canvas.width = 800;
+        canvas.height = 800;
+
+        // 径向渐变又称之为扩散性渐变。在Canvas中通过createRadialGradient()方法创建径向渐变。
+        // 这个方法接受六个参数：前三个参数描述一个圆（开始圆），后三个参数描述另一个圆（结束圆）。
+        // 这两个圆本身不仅描述了方向及渐变的起止位置，还描述了渐变的形状。
+        // 用于描述每个圆有三个参数，(x,y)表示圆心位置，r表示圆的半径。
+
+        var radialGradient = context.createRadialGradient(300, 300, 10, 100, 100, 50);
+        radialGradient.addColorStop(0, 'rgb(255, 0, 0)');
+        radialGradient.addColorStop(0.5, 'rgb(0, 255, 0)');
+        radialGradient.addColorStop(1, 'rgb(0, 0, 255)');
+
+        context.fillStyle = radialGradient;
+        context.fillRect(0, 0, canvas.width, canvas.height/2);
+
+
+    }
+</script>
+
+</body>
+</html>
