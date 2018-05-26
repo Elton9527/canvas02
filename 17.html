@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用的全局变量 globalCompositeOperation</title>
+</head>
+<body>
+<div style="width: 800px; margin: 0 auto;">
+    <canvas id="canvas"></canvas>
+</div>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        //设置画布的宽和高
+        canvas.width = 800;
+        canvas.height = 800;
+
+        context.fillStyle = "blue";
+        context.fillRect(100, 200, 400, 400);
+
+        //全局变量globalCompositeOperation  总共有11种值，具体API
+        context.globalCompositeOperation = "destination-over";
+        context.fillStyle = "red";
+        context.beginPath();
+        context.moveTo(400, 300);
+        context.lineTo(650, 700);
+        context.lineTo(150, 700);
+        context.closePath();
+        context.fill();
+       
+    }
+
+    
+</script>
+
+</body>
+</html>
