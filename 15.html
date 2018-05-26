@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘制阴影</title>
+</head>
+<body>
+<div style="width: 800px; margin: 0 auto;">
+    <canvas id="canvas"></canvas>
+</div>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        //设置画布的宽和高
+        canvas.width = 800;
+        canvas.height = 800;
+
+        context.fillStyle ="#058";
+        context.shadowColor = "gray";
+        context.shadowOffsetX = 20;
+        context.shadowOffsetY = 20;
+        context.shadowBlur = 5;
+
+        context.fillRect(200, 200, 400, 400);
+    }
+
+    
+</script>
+
+</body>
+</html>
